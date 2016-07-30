@@ -1,0 +1,14 @@
+=========================================================================================================================================
+==                                      Info will be posted here on what is needed to be done                                          ==
+=========================================================================================================================================
+
+--To work on a to do remove it from to do and put it in being worked on. Format Example: Commands||Kinlinux01.
+--After done put it in the done section!
+
+==   To Do  ==
+
+
+==  Being Worked On ==
+
+
+==  Done  ==
