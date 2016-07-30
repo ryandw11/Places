@@ -14,6 +14,8 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.ryanlinux.places.Commands.Place;
+import com.ryanlinux.places.events.OnExitEvent;
+import com.ryanlinux.places.events.OnJoinEvent;
 import com.ryanlinux.places.world.WorldGen;
 
 public class Main extends JavaPlugin {
@@ -32,7 +34,6 @@ public class Main extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		getCommand("place").setExecutor(new Place(this));
 		logger.info(String.format("[%s] The plugin has been enabled! Version: %s", getDescription().getName(),
 				getDescription().getVersion()));
 		loadManager();
@@ -40,8 +41,20 @@ public class Main extends JavaPlugin {
 		loadFile();
 		loadPlaces();
 		getPlaceWorld();
+		SetCommands();
+		StartEvents();
 
 		Prefix = getConfig().getString("Prefix").replaceAll("(&([a-f0-9]))", "\u00A7$2");
+	}
+
+	public void StartEvents() {
+		new OnJoinEvent();
+		new OnExitEvent();
+	}
+
+	public void SetCommands() {
+		getCommand("place").setExecutor(new Place(this));
+
 	}
 
 	@Override
