@@ -3,3 +3,9 @@ version: 1.0
 main: com.ryanlinux.places.core.Main
 authors: [Ryandw11, KingLinux01] 
 description: Have your own places!
+commands:
+   place:
+     description: Place  
+     usage: /<command> 
+
+
