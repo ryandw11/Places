@@ -6,12 +6,11 @@ import org.bukkit.entity.Player;
 
 import com.ryanlinux.places.core.Main;
 
-public class PlaceAdmin {
+public class PlaceAdmin implements CommandExecutor{
+	
 	private Main plugin;
-
-	public PlaceAdmin(Main pl) {
-
-		plugin = pl;
+	public PlaceAdmin(Main plugin) {
+		this.plugin = plugin;
 	}
 
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -19,11 +18,10 @@ public class PlaceAdmin {
 		
 		if (cmd.getName().equalsIgnoreCase("placeadmin")) {
 			if (args.length == 0) {
-
-				return true;
+				
 			}
 
-			return true;
+
 		}
 		return false;
 	}
