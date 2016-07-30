@@ -13,80 +13,93 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.ryanlinux.places.Commands.Place;
+import com.ryanlinux.places.place.PlaceManager;
 import com.ryanlinux.places.world.WorldGen;
 
-public class Main extends JavaPlugin {
-	public static String Prefix;
+/*
+*
+* Developed by: @Ryandw11 and @Kinglinux01. Spigot Devs
+* 
+* Use logger.info(); or plugin.logger.info(); in other classes
+*
+* Use plugin.saveFile(); to save data.yml. Use plugin.savePlaces(); to save places.yml.
+*
+* End
+*
+*/
 
+public class Main extends JavaPlugin{
+	
 	public final Logger logger = Logger.getLogger("Minecraft");
-
+	
+	public Main plugin;
+	
+	private PlaceManager manager;
+	
 	public World place;
 	public String placeName = "PlaceWorld";
-
+	
 	public File datafile = new File(getDataFolder() + "/data/data.yml");
 	public FileConfiguration data = YamlConfiguration.loadConfiguration(datafile);
-
+	
 	public File placesfile = new File(getDataFolder() + "/data/places.yml");
 	public FileConfiguration places = YamlConfiguration.loadConfiguration(placesfile);
 
+	
 	@Override
-	public void onEnable() {
-		getCommand("place").setExecutor(new Place(this));
-		logger.info(String.format("[%s] The plugin has been enabled! Version: %s", getDescription().getName(),
+	public void onEnable(){
+		logger.info(String.format("[%s] The plugin has been enabled! Version: %s", 
+				getDescription().getName(),
 				getDescription().getVersion()));
 		loadManager();
 		registerConfig();
 		loadFile();
 		loadPlaces();
 		getPlaceWorld();
-
-		Prefix = getConfig().getString("Prefix").replaceAll("(&([a-f0-9]))", "\u00A7$2");
 	}
-
+	
 	@Override
-	public void onDisable() {
-
+	public void onDisable(){
+		
 	}
-
-	public void loadManager() {
-
+	
+	public void loadManager(){
+		
 	}
-
+	
 	private void registerConfig() {
-
 		getConfig().options().copyDefaults(true);
 		saveConfig();
 	}
-
-	public void saveFile() {
-		try {
+	
+	public void saveFile(){
+		try{
 			data.save(datafile);
-		} catch (IOException e) {
+		}catch(IOException e){
 			e.printStackTrace();
-
-		}
+			
+		}	
 	}
-
-	public void savePlaces() {
-		try {
+	public void savePlaces(){
+		try{
 			places.save(placesfile);
-		} catch (IOException e) {
+		}catch(IOException e){
 			e.printStackTrace();
-
-		}
+			
+		}	
 	}
-
-	public void loadFile() {
-		if (datafile.exists()) {
+	
+	public void loadFile(){
+		if(datafile.exists()){
 			try {
 				data.load(datafile);
-
+				
 			} catch (IOException | InvalidConfigurationException e) {
 
 				e.printStackTrace();
 			}
-		} else {
+		}
+		else{
 			try {
 				data.save(datafile);
 			} catch (IOException e) {
@@ -94,17 +107,18 @@ public class Main extends JavaPlugin {
 			}
 		}
 	}
-
-	public void loadPlaces() {
-		if (placesfile.exists()) {
+	
+	public void loadPlaces(){
+		if(placesfile.exists()){
 			try {
 				places.load(placesfile);
-
+				
 			} catch (IOException | InvalidConfigurationException e) {
 
 				e.printStackTrace();
 			}
-		} else {
+		}
+		else{
 			try {
 				places.save(placesfile);
 			} catch (IOException e) {
@@ -112,11 +126,10 @@ public class Main extends JavaPlugin {
 			}
 		}
 	}
-
-	public void getPlaceWorld() {
+	public void getPlaceWorld(){
 		Difficulty diff = Difficulty.NORMAL;
-
-		if (Bukkit.getWorld(placeName) == null) {
+		
+		if(Bukkit.getWorld(placeName) == null){
 			logger.info("[Places] World PlaceWorld does not exsit! Creating PlaceWorld!");
 			WorldCreator wc = new WorldCreator(placeName);
 			wc.generateStructures(false);
@@ -124,10 +137,4 @@ public class Main extends JavaPlugin {
 			Bukkit.getServer().createWorld(wc);
 		}
 	}
-
-	public static String GetPrefix() {
-
-		return Prefix;
-	}
-
 }
