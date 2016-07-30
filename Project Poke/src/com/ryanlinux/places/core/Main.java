@@ -16,6 +16,18 @@ import org.bukkit.plugin.java.JavaPlugin;
 import com.ryanlinux.places.place.PlaceManager;
 import com.ryanlinux.places.world.WorldGen;
 
+/*
+*
+* Developed by: @Ryandw11 and @Kinglinux01. Spigot Devs
+* 
+* Use logger.info(); or plugin.logger.info(); in other classes
+*
+* Use plugin.saveFile(); to save data.yml. Use plugin.savePlaces(); to save places.yml.
+*
+* End
+*
+*/
+
 public class Main extends JavaPlugin{
 	
 	public final Logger logger = Logger.getLogger("Minecraft");
@@ -68,7 +80,7 @@ public class Main extends JavaPlugin{
 			
 		}	
 	}
-		public void savePlaces(){
+	public void savePlaces(){
 		try{
 			places.save(placesfile);
 		}catch(IOException e){
