@@ -25,28 +25,27 @@ public class Place implements CommandExecutor {
 
 				player.sendMessage(Main.GetPrefix() + "Arguments you can enter");
 
-				return true;
 			}
-			if (args[0].equalsIgnoreCase("go")) {
+			else if (args[0].equalsIgnoreCase("go")) {
 
 			}
 
-			if (args[0].equalsIgnoreCase("restart")) {
+			else if (args[0].equalsIgnoreCase("restart")) {
 
 			}
-			if (args[0].equalsIgnoreCase("lock")) {
+			else if (args[0].equalsIgnoreCase("lock")) {
 
 			}
-			if (args[0].equalsIgnoreCase("unlock")) {
+			else if (args[0].equalsIgnoreCase("unlock")) {
 
 			}
-			if (args[0].equalsIgnoreCase("sethome")) {
+			else if (args[0].equalsIgnoreCase("sethome")) {
 
 			}
-			if (args[0].equalsIgnoreCase("ban")) {
+			else if (args[0].equalsIgnoreCase("ban")) {
 
 			}
-			if (args[0].equalsIgnoreCase("unban")){
+			else if (args[0].equalsIgnoreCase("unban")){
 				
 				
 			}
@@ -54,7 +53,7 @@ public class Place implements CommandExecutor {
 				
 				
 			}
-			return true;
+			
 		}
 
 		return false;
