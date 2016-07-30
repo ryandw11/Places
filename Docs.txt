@@ -1,0 +1,46 @@
+-- The docs are how code is done in some cases.
+
+Intalize main:
+
+	private Main plugin;
+	public Place(Main plugin) {
+		this.plugin = plugin;
+	}
+	
+	Command format:
+	
+	public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
+	
+	
+	Note: When doing command files to forget to: implements CommandExecutor
+	
+	Command Example:
+	public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
+	  Player p = (Player) sender;
+		if (cmd.getName().equalsIgnoreCase("place")) {
+			if (args.length == 0) {
+			  if(p.hasPermisson("places.help"){
+			    p.sendMessage("Help Page");
+			  }
+			}
+			else if(args.length == 1 && args[0].equalsIgnoreCase("create")){
+			  if(p.hasPermission("places.create")){
+			    //code
+			  }
+			}
+		}
+
+		return false;
+	}
+	
+	========================[End Example]====================
+	
+	Using Configs:
+	--Configs are pre-coded into the main stuff. To add stuff to the config just edit the config.yml that is already there.
+	--You should never have to access the two data files. Note: The two data files load in on startup and are not pre there
+	--To access something just do:
+	plugin.getConfig().getString("Example")
+	plugin.getConfig().getInt("Example")
+	plugin.getConfig().getBoolean("Example")
+	etc.
+	
