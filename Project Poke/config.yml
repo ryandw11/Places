@@ -1,2 +1,9 @@
 #Config.yml
+
+#Info
+Prefix: '&2[&4Places&2]'
+
+
+#World Config
 World_Difficulty: 'normal'
+
