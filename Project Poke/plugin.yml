@@ -1,5 +1,5 @@
 name: Places
 version: 1.0
-main: me.ryandw11.places.core.Main
+main: com.ryanlinux.places.core.Main
 author: Ryandw11
 description: Have your own places!
