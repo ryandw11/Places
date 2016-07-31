@@ -6,11 +6,16 @@
 --After done put it in the done section!
 
 ==   To Do  ==
+
+KingLinux01 To do jobs.s
 - Place command help. (Do: p.sendMessage(ChatColor.translateAlternateColorCodes('&', "Message")); so you can use easy color codes)
 - Place Admin command help. (Do: p.sendMessage(ChatColor.translateAlternateColorCodes('&', "Message")); so you can use easy color codes)
 - Basic setup of onjoin listener with the player already codded in. (Put in a listener package. com.ryanlinux.listeners) (Player p = event.getPlayer();) (Use event not e or anything else).
 - Basic setup of onleave listener with the player already codded in. (Put in a listener package. com.ryanlinux.listeners) (Player p = event.getPlayer();) (Use event not e or anything else).
 
+
+Ryandw11 To do jobs
+- Get world generations going.
 ==  Being Worked On ==
 
 
