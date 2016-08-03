@@ -19,7 +19,7 @@ import com.ryanlinux.places.events.OnJoinEvent;
 import com.ryanlinux.places.world.WorldGen;
 
 public class Main extends JavaPlugin {
-	public static String Prefix;
+	public static String Prefix = "Test for now. Add option in config later";
 
 	public final Logger logger = Logger.getLogger("Minecraft");
 
@@ -34,36 +34,29 @@ public class Main extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		logger.info(String.format("[%s] The plugin has been enabled! Version: %s", getDescription().getName(),
+		logger.info(String.format("[%s] The plugin has been enabled! Version: %s", 
+				getDescription().getName(),
 				getDescription().getVersion()));
 		loadManager();
 		registerConfig();
 		loadFile();
 		loadPlaces();
 		getPlaceWorld();
-		SetCommands();
-		StartEvents();
-
-		Prefix = getConfig().getString("Prefix").replaceAll("(&([a-f0-9]))", "\u00A7$2");
+		StartEvents(); //replace this later
 	}
 
-	public void StartEvents() {
+	public void StartEvents() {// replace this later
 		new OnJoinEvent();
 		new OnExitEvent();
 	}
 
-	public void SetCommands() {
-		getCommand("place").setExecutor(new Place(this));
-
-	}
-
 	@Override
 	public void onDisable() {
-
+		logger.info(String.format("[%s] The plugin has been disabled!, getDescription().getName());
 	}
 
 	public void loadManager() {
-
+		getCommand("place").setExecutor(new CMDPlace(this));
 	}
 
 	private void registerConfig() {
@@ -137,9 +130,9 @@ public class Main extends JavaPlugin {
 			Bukkit.getServer().createWorld(wc);
 		}
 	}
-
-	public static String GetPrefix() {
-
+	
+	//gets the prefix of the plugin for easy referance
+	public static String getPrefix() {
 		return Prefix;
 	}
 
